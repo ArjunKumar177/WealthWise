@@ -48,6 +48,9 @@ def get_index():
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
+@app.route('/<directory>/<path>')
+def send_static_styles(directory, path):
+    return send_from_directory('static/'+ directory, path)
 
 @app.route("/dashboard")
 def get_dashboard():
