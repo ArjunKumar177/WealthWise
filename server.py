@@ -36,7 +36,7 @@ def home():
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
-@app.route("/dashboard/")
+@app.route("/dashboard")
 def dash():
     return render_template(
         "dashboard.html",
