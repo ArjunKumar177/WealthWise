@@ -13,7 +13,6 @@ if ENV_FILE:
 app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 
-
 oauth = OAuth(app)
 
 oauth.register(
@@ -35,6 +34,7 @@ def home():
         session=session.get("user"),
         pretty=json.dumps(session.get("user"), indent=4),
     )
+
 
 @app.route("/dashboard")
 def dash():
