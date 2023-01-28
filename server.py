@@ -1,14 +1,15 @@
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
-
+from markupsafe import escape
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, redirect, render_template, session, url_for
+from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
 
 from pymongo import MongoClient
 import datetime
 from bson.objectid import ObjectId
+
 cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
 client = MongoClient(cluster)
 
@@ -30,6 +31,12 @@ oauth.register(
     },
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration',
 )
+
+cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
+client = MongoClient(cluster)
+db = client.wealthwise
+transactions = db.transactions
+users = db.users
 
 
 # Controllers API
@@ -80,3 +87,15 @@ def get_logout():
             quote_via=quote_plus,
         )
     )
+
+
+@app.route("/transaction", methods=["POST"])
+def add_transaction():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        result = users.find_one({"name"})
+        print(result)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=env.get("PORT", 8000))
