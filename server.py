@@ -28,16 +28,16 @@ oauth.register(
 
 # Controllers API
 @app.route("/")
-def home():
+def get_index():
     return render_template(
-        "home.html",
+        "index.html",
         session=session.get("user"),
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
 
 @app.route("/dashboard")
-def dash():
+def get_dashboard():
     return render_template(
         "dashboard.html",
         session=session.get("user"),
@@ -53,14 +53,14 @@ def callback():
 
 
 @app.route("/login")
-def login():
+def get_login():
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
     )
 
 
 @app.route("/logout")
-def logout():
+def get_logout():
     session.clear()
     return redirect(
         "https://"
@@ -74,7 +74,3 @@ def logout():
             quote_via=quote_plus,
         )
     )
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
