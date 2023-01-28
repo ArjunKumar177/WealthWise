@@ -36,6 +36,14 @@ def home():
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
+@app.route("/dashboard/")
+def dash():
+    return render_template(
+        "dashboard.html",
+        session=session.get("user"),
+        pretty=json.dumps(session.get("user"), indent=4),
+    )
+
 
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
