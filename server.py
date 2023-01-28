@@ -9,6 +9,7 @@ from flask import Flask, redirect, render_template, session, url_for, request, s
 from pymongo import MongoClient
 import datetime
 from bson.objectid import ObjectId
+
 cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
 client = MongoClient(cluster)
 
@@ -46,7 +47,6 @@ def get_index():
         session=session.get("user"),
         pretty=json.dumps(session.get("user"), indent=4),
     )
-
 
 
 @app.route("/dashboard")
@@ -88,6 +88,7 @@ def get_logout():
         )
     )
 
+
 @app.route("/transaction", methods=["POST"])
 def add_transaction():
     if request.method == 'POST':
@@ -95,5 +96,6 @@ def add_transaction():
         result = users.find_one({"name"})
         print(result)
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+    app.run(debug=True, port=env.get("PORT", 8000))
