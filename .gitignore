@@ -1,4 +1,8 @@
-.venv
-.idea
+.venv/
+.idea/
 .env
-__pycache__
+__pycache__/
+static/styles/*.css
+static/styles/*.css.map
+static/scripts/*.js
+.sass-cache/
