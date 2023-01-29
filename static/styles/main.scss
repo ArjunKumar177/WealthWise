@@ -1,3 +1,46 @@
+:root {
+  --background: #222;
+  --foreground: #fff;
+  --background-dark: #111;
+  --accent: #26a69a;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
+  background-color: var(--background);
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
   margin: 0;
+}
+
+header {
+  background-color: var(--background-dark);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  button {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    color: var(--foreground);
+    margin: auto 1rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+footer {
+  background-color: var(--background-dark);
+  display: flex;
+  padding: 1rem;
+}
+
+main {
+  flex-grow: 1;
+  padding: 1em 10vw;
 }

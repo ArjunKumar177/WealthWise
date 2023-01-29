@@ -1,0 +1,30 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+#charts {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+
+  .vl {
+    height: 100%;
+    border: 2px solid var(--foreground);
+  }
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+
+  button {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: .75rem 2rem;
+  }
+}

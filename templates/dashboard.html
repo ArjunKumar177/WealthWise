@@ -1,5 +1,24 @@
 {% extends 'layout.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="/styles/dashboard.css">
+{% endblock %}
+
 {% block body %}
-hello world
+<div id="charts">
+  <canvas id="pie"></canvas>
+  <div class="vl"></div>
+  <div id="bars">
+    <canvas id="budget"></canvas>
+  </div>
+</div>
+<div id="buttons">
+  <button id="expenditure">Add Expenditure</button>
+  <button id="income">Add Income</button>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/scripts/dashboard.ts"></script>
 {% endblock %}
