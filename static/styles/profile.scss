@@ -1,12 +1,12 @@
 /* Dropdown Button */
-.dropbtn, .datePick, .input, .submit{
-    background-color: #26a69a;
-    color: white;
-    padding: 8px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-  }
+.dropbtn, .datePick, .input, .submit {
+  background-color: var(--accent);
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
 
 /* .datePick{
     background-color: #26a69a;
@@ -16,22 +16,41 @@
     border: none;
     border-radius: 5px;
 } */
-  
-  .dropdown, .date, .send {
-    padding: 0px 8px;
-  }
 
-  .row{
-    display: inline-flex;
-    position: relative
-  }
-  
+.dropdown, .date, .send {
+  padding: 0px 8px;
+}
 
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .submit:hover {background-color: aquamarine;}
-  /* Change the background color of the dropdown button when the dropdown content is shown */
+.row {
+  display: inline-flex;
+  position: relative
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.submit:hover {
+  background-color: aquamarine;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
 //   .dropdown:hover, .dropbtn:hover, .datePick:hover {
 //     border: 2px solid rgb(85, 84, 84);
 // }
+
+#completeProfile {
+  background-color: var(--background-dark);
+  border-radius: 10px;
+  padding: 2rem;
+
+  h2 {
+    margin: 0;
+  }
+
+  input {
+    width: 7rem;
+  }
+}
