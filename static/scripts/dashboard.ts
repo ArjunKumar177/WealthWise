@@ -15,6 +15,14 @@ new Chart(ctx, {
     }]
   },
   options: {
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: '#ddd',
+        }
+      }
+    },
     scales: {
       y: {
         beginAtZero: true

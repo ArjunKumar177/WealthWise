@@ -68,7 +68,14 @@ button:hover {
 footer {
   background-color: var(--background-dark);
   display: flex;
+  font-family: Domine, serif;
+  font-size: 1rem;
   padding: 1rem;
+
+  a {
+    color: var(--foreground);
+    margin-left: .5em;
+  }
 }
 
 main {
