@@ -1,13 +1,12 @@
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
-from markupsafe import escape
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
 
 from pymongo import MongoClient
-import datetime
+from datetime import datetime
 from bson.objectid import ObjectId
 from bson import json_util
 
@@ -129,7 +128,7 @@ def add_transaction():
 
     transactions.insert_one({
         "user_id": ObjectId(object_id),
-        "date": date,
+        "date": datetime.strptime(date, '%Y-%m-%d'),
         "transaction_type": transaction_type,
         "amount": int(amount),
         "category": category,

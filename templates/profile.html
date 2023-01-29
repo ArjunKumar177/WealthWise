@@ -87,7 +87,7 @@
   <tbody>
     {% for transaction in transactions %}
     <tr>
-      <td>{{transaction.date}}</td>
+      <td>{{transaction['date']['$date']}}</td>
       <td>{{transaction.transaction_type}}</td>
       <td>{{transaction.category}}</td>
       <td>{{transaction.amount}}</td>
