@@ -124,6 +124,7 @@ def add_transaction():
                     "transaction_type": transaction_type, "amount": amount,
                     "category": category}
     result = transactions.insert_one(transaction1)
+    return 'success'
 
 
 @app.route("/completeProfile", methods=["POST"])

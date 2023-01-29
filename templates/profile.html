@@ -27,7 +27,7 @@
 {% else %}
 <h2>Profile</h2>
 {% endif %}
-<div class="row">
+<form id="transaction_row" class="row">
     <div class="date">
         <label for="datePicker">Start date:</label>
         <input class='datePick' id='datePicker' type="date" name="trip-start">
@@ -60,7 +60,7 @@
         <input class="amount" name="Type Amount" id="amount"/>
     </div>
     <div class="send"><button class="submit" id="submitTransaction">Submit</button></div>
-</div>
+  </form>
 <div id="form-response"></div>
 
 

@@ -18,16 +18,19 @@ $('#completeProfile').on('submit', e => {
 
 declare const username: string;
 
-$('#submitTransaction').on('click', function() {
-  var date = $('#datePicker').val();
-  var transaction_type = $('transaction_type').val();
-  var catogaries_type = $('catogaries_type').val();
-  var amount = $('amount').val();
-  $.post('/transactions', {
-    "username" : username,
-    "date": date, 
-    "transaction_type": transaction_type,
-    "category": catogaries_type,
-    "amount": amount
-  });
+$('#transaction_row').on('submit', e => {
+  e.preventDefault();
+  let body = new FormData();
+  body.append('username', username);
+  body.append('date', $('#datePicker').val()!.toString() || '0');
+  body.append('transaction_type', $('#transaction_type').val()!.toString() || '0');
+  body.append('category', $('#catogaries_type').val()!.toString() || '0');
+  body.append('amount', $('#amount').val()!.toString() || '0');
+  fetch('/transaction', {
+    method: 'POST',
+    body,
+  }).then(result => {
+    console.log(result);
+  })
+
 });
