@@ -125,5 +125,11 @@ def add_transaction():
         result = transactions.insert_one(transaction1)
 
 
+@app.route("/completeProfile", methods=["POST"])
+def post_complete_profile():
+    print(request.form)
+    return 'ok'
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=env.get("PORT", 4242))
