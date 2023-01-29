@@ -1,12 +1,12 @@
 $('#completeProfile').on('submit', e => {
   e.preventDefault();
-  let data = new FormData();
-  data.append('budget', $('#budget').val()!.toString() || '0');
-  data.append('income', $('#income').val()!.toString() || '0');
-  data.append('account', $('#account').val()!.toString() || '0');
+  let body = new FormData();
+  body.append('budget', $('#budget').val()!.toString() || '0');
+  body.append('income', $('#income').val()!.toString() || '0');
+  body.append('account', $('#account').val()!.toString() || '0');
   fetch('/completeProfile', {
     method: 'POST',
-    body: data,
+    body,
   }).then(result => {
     console.log(result);
   });

@@ -127,7 +127,7 @@ def add_transaction():
 
 @app.route("/completeProfile", methods=["POST"])
 def post_complete_profile():
-    print(request.form)
+    print(request.form.get('budget'))
     return 'ok'
 
 
