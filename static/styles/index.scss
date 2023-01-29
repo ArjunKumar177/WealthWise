@@ -5,6 +5,13 @@
 }
 
 header {
+  background-color: #19BC16;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
   h1 {
     text-align: center;
     color: white;
@@ -12,13 +19,6 @@ header {
     margin-top: 100px;
     font-size: 60px;
   }
-
-  background-color: #19BC16;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
-  padding-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 
   button {
     margin: auto;
@@ -34,6 +34,10 @@ header {
     color: white;
     font-size: 1.5em;
 
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 
