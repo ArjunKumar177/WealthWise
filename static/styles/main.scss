@@ -78,6 +78,7 @@ button {
 
 #overlay {
   background-color: #00000066;
+  backdrop-filter: blur(5px);
   display: none;
   position: fixed;
   top: 0;
