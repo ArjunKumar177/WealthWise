@@ -190,12 +190,12 @@ def post_complete_profile():
         {
             '_id': ObjectId(session.get('user')['userinfo']['sub'][6:]),
             'expenditure': {'$exists': False},
-            'income': {'$exists': False},
+            'invested': {'$exists': False},
         },
         {
             '$set': {
                 'expenditure': 0,
-                'income': 0,
+                'invested': 0,
             },
         }
     )
