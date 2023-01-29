@@ -9,6 +9,9 @@ $('#completeProfile').on('submit', e => {
     body,
   }).then(result => {
     console.log(result);
+    result.text().then(text => {
+      if (text === 'success') location.reload();
+    });
   });
 });
 

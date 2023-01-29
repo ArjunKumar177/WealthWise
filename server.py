@@ -129,8 +129,20 @@ def add_transaction():
 
 @app.route("/completeProfile", methods=["POST"])
 def post_complete_profile():
-    print(request.form.get('budget'))
-    return 'ok'
+    users.update_one(
+        {
+            '_id': ObjectId(session.get('user')['userinfo']['sub'][6:])
+        },
+        {
+            '$set': {
+                'budget': int(request.form.get('budget')),
+                'income': int(request.form.get('income')),
+                'account': int(request.form.get('account')),
+                'profile_completed': True,
+            },
+        }
+    )
+    return 'success'
 
 
 if __name__ == "__main__":
