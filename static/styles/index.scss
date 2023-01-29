@@ -9,15 +9,28 @@ header{
         color: white;
         font-family: Domine;
         margin-top: 100px;
-        font-size: 50px;
+        font-size: 60px;
     }
-    background-color: #26a69a;
+    background-color: #19BC16;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
     padding-bottom: 50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     button{
         margin: auto;
+        border-radius: 5px;
+        border-color: white;
+        font-family: Domine;
+        cursor: pointer;
+        border: 0px solid white;
+        background-color: #138611;
+        background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
+        height: 50px;
+        width: 200px;
+        color: white;
+        font-size: 1.5em;
+
     }
 }
 html,body{
@@ -25,32 +38,38 @@ html,body{
 }
 body{
     background-color: #222;
+    background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png");
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
     padding: 0;
 }
-div{
+body > div{
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     font-size: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     color: white;
-    background-color: #222;
+    padding: 0 10vw;
+
+    h2 {
+        text-align: center;
+    }
 }
 p{
     margin: 30px;
-    font-family: Domine;
+    font-family: sans-serif;
     line-height: 1.5;
+    text-align: justify;
 }
 footer{
     font-family: Domine;
+    text-align: center;
     color: white;
     background-color: #222;
-    padding-top: 30px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 1rem 2rem;
 }
 h2{
     margin: 30px;
