@@ -31,39 +31,41 @@
 <br><br><br>
 {% endif %}
 <form id="transaction_row" class="row">
-    <div class="date">
-        <label for="datePicker">Start date:</label>
-        <input class='datePick' id='datePicker' type="date" name="trip-start">
-       <script>
-        document.getElementById('datePicker').valueAsDate = new Date();
-        </script>
-    </div>
-    <div class="dropdown">
-        <!-- <button class="dropbtn">transaction type</button>
-        <div class="dropdown-content">
-            <a href="#">Spending</a>
-            <a href="#">Earning</a>
-          </div> -->
+  <div class="date">
+    <label for="datePicker">Start date:</label>
+    <input class='datePick' id='datePicker' type="date" name="trip-start">
+    <script>
+      document.getElementById('datePicker').valueAsDate = new Date();
+    </script>
+  </div>
+  <div class="dropdown">
+    <!-- <button class="dropbtn">transaction type</button>
+    <div class="dropdown-content">
+        <a href="#">Spending</a>
+        <a href="#">Earning</a>
+      </div> -->
 
-          <select class="dropbtn" name="transaction_type" id="transaction_type">
-                <option value="Select Transaction type">Transaction type</option>
-                <option value="Spending">Spending</option>
-                <option value="Earning">Earning</option>
-          </select>
-    </div>
-    <div class="dropdown">
-        <select class="dropbtn" name="catogegory_type" id="catogaries_type">
-            <option value="Categories">Categories</option>
-            <option value="Food">Food</option>
-            <option value="Investing">Investing</option>
-            <option value="Entertainment">Entertainment</option>
-      </select>
-    </div>
-    <div class="input">
-        <input class="amount" name="Type Amount" id="amount"/>
-    </div>
-    <div class="send"><button class="submit" id="submitTransaction">Submit</button></div>
-  </form>
+    <select class="dropbtn" name="transaction_type" id="transaction_type">
+      <option value="Select Transaction type">Transaction type</option>
+      <option value="Spending">Spending</option>
+      <option value="Earning">Earning</option>
+    </select>
+  </div>
+  <div class="dropdown">
+    <select class="dropbtn" name="catogegory_type" id="catogaries_type">
+      <option value="Categories">Categories</option>
+      <option value="Food">Food</option>
+      <option value="Investing">Investing</option>
+      <option value="Entertainment">Entertainment</option>
+    </select>
+  </div>
+  <div class="input">
+    <input class="amount" name="Type Amount" id="amount"/>
+  </div>
+  <div class="send">
+    <button class="submit" id="submitTransaction">Submit</button>
+  </div>
+</form>
 <div id="form-response"></div>
 
 
