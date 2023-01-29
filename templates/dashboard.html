@@ -23,6 +23,16 @@
     <button>Add</button>
   </form>
 </dialog>
+<dialog id="incomeDialog">
+  <form>
+    <h1>Add Income</h1>
+    <label for="newIncome">How much did you spend?</label>
+    <br>
+    <input type="number" id="newIncome">
+    <br><br>
+    <button>Add</button>
+  </form>
+</dialog>
 <div id="charts">
   <div id="pieContainer">
     <canvas id="pie"></canvas>
@@ -51,6 +61,7 @@
 
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/scripts/cash.min.js"></script>
 <script src="/scripts/dashboard.js"></script>
 <script>
   console.log('{{session.userinfo}}');

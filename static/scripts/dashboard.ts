@@ -20,12 +20,14 @@ new Chart(ctx, {
   }
 });
 
-document.querySelector('#expenditure')!.addEventListener('click', () => {
-  document.querySelector<HTMLDialogElement>('#expenditureDialog')!.show();
-  document.querySelector<HTMLDivElement>('#overlay')!.style.display = 'block';
+$('#expenditure').on('click', () => {
+  $('#expenditureDialog, #overlay').show();
 });
 
-document.querySelector('#overlay')!.addEventListener('click', () => {
-  document.querySelectorAll<HTMLDialogElement>('dialog').forEach(x => x.close());
-  document.querySelector<HTMLDivElement>('#overlay')!.style.display = 'none';
-})
+$('#income').on('click', () => {
+  $('#incomeDialog, #overlay').show();
+});
+
+$('#overlay').on('click', () => {
+  $('dialog, #overlay').hide();
+});

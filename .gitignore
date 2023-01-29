@@ -5,4 +5,6 @@ __pycache__/
 static/styles/*.css
 static/styles/*.css.map
 static/scripts/*.js
+!static/scripts/*.min.js
 .sass-cache/
+node_modules/
