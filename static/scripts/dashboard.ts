@@ -1,13 +1,16 @@
 const ctx = document.getElementById('pie');
 
+declare const chart_labels: Array<string>;
+declare const chart_data: Array<number>;
+
 // @ts-ignore
 new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: chart_labels,
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: 'percentage',
+      data: chart_data,
       borderWidth: 1
     }]
   },

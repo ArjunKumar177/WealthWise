@@ -63,12 +63,30 @@ def get_dashboard():
     if len(session):
         object_id = session.get('user')['userinfo']['sub'][6:]
         user = users.find_one({'_id': ObjectId(object_id)})
+        documents = list(transactions.find({'user_id': ObjectId(object_id)}))
         if user.get('profile_completed'):
+            hashCategories = {"meals": 0, "groceries": 0, "movies": 0, "clothes": 0, "school": 0, "home": 0, "entertainment": 0, "investment": 0, "other": 0 }
+            for transaction in documents:
+                if transaction['transaction_type'] == "expenditure" and transaction['category'] in hashCategories:
+                    hashCategories[transaction['category']] += transaction['amount']
+            chart_data = []
+            chart_label = []
+            for k, v in hashCategories.items():
+                if v != 0:
+                    chart_data.append(v)
+                    chart_label.append(k)
+            
+            print(chart_data)
+            print(chart_label)
+
+
             return render_template(
                 "dashboard.html",
                 user=user,
                 session=session.get("user"),
                 pretty=json.dumps(session.get("user"), indent=4),
+                chart_labels = chart_label,
+                chart_data = chart_data,
             )
         else:
             return redirect("/profile")
