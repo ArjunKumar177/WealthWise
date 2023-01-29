@@ -9,7 +9,7 @@ new Chart(ctx, {
   data: {
     labels: chart_labels,
     datasets: [{
-      label: 'percentage',
+      label: 'amount',
       data: chart_data,
       borderWidth: 1
     }]
