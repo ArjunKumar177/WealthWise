@@ -44,19 +44,19 @@ main {
   }
 
   #budget::-moz-progress-bar {
-    background-color: #f63333;
+    background-color: var(--expended);
   }
 
   #budget::-webkit-progress-value {
-    background-color: #f63333;
+    background-color: var(--expended);
   }
 
   #invested::-moz-progress-bar {
-    background-color: #49bdff;
+    background-color: var(--invested);
   }
 
   #invested::-webkit-progress-value {
-    background-color: #49bdff;
+    background-color: var(--invested);
   }
 }
 
