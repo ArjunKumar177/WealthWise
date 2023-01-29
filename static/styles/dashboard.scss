@@ -1,24 +1,51 @@
 main {
   display: flex;
   flex-direction: column;
+  padding: 0 2rem;
 }
 
 #charts {
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   display: flex;
   flex-grow: 1;
+  font-family: sans-serif;
 
   .vl {
     height: 100%;
     border: 2px solid var(--foreground);
+    margin-top: 4rem;
+  }
+}
+
+#pieContainer, #bars {
+  width: 30vw;
+}
+
+.bar {
+  padding: 1rem 2rem;
+
+  progress {
+    appearance: none;
+    border-radius: 1.5rem;
+    border: none;
+    width: 100%;
+    height: 3rem;
+  }
+
+  #budget::-moz-progress-bar {
+    background-color: #f63333;
+  }
+
+  #invested::-moz-progress-bar {
+    background-color: #49bdff;
   }
 }
 
 #buttons {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: 2rem;
 
   button {
     background-color: var(--accent);

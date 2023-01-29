@@ -6,10 +6,23 @@
 
 {% block body %}
 <div id="charts">
-  <canvas id="pie"></canvas>
+  <div id="pieContainer">
+    <canvas id="pie"></canvas>
+  </div>
   <div class="vl"></div>
   <div id="bars">
-    <canvas id="budget"></canvas>
+    <div class="bar">
+      <h2>Budget</h2>
+      <p>How much of your weekly budget have you used?</p>
+      <progress id="budget" max="100" value="32"></progress>
+      <p>$32 / $100</p>
+    </div>
+    <div class="bar">
+      <h2>Invested</h2>
+      <p>How much of your income have you invested?</p>
+      <progress id="invested" max="100" value="48"></progress>
+      <p>$48 / $100</p>
+    </div>
   </div>
 </div>
 <div id="buttons">
@@ -20,5 +33,8 @@
 
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/scripts/dashboard.ts"></script>
+<script src="/scripts/dashboard.js"></script>
+<script>
+  console.log('{{session.userinfo}}');
+</script>
 {% endblock %}

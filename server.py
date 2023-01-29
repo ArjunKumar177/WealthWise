@@ -67,7 +67,7 @@ def get_dashboard():
 def callback():
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
-    return redirect("/")
+    return redirect("/dashboard")
 
 
 @app.route("/login")
@@ -95,7 +95,7 @@ def get_logout():
         + "/v2/logout?"
         + urlencode(
             {
-                "returnTo": url_for("home", _external=True),
+                "returnTo": url_for("get_index", _external=True),
                 "client_id": env.get("AUTH0_CLIENT_ID"),
             },
             quote_via=quote_plus,

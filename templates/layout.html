@@ -13,7 +13,7 @@
   <header>
     <button id="menu">≡</button>
     <h1>WealthWise</h1>
-    <button id="signin">Sign in</button>
+    <button id="signin"><a href="/logout">{{session.userinfo.name}}</a></button>
   </header>
   <main>
     {% block body %}{% endblock %}
