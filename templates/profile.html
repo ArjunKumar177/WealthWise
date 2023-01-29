@@ -6,54 +6,39 @@
 
 {% block body %}
 {% if not user.profile_completed %}
+<h1>Complete your profile to proceed:</h1>
+{% else %}
+<h1>Profile</h1>
 <form id="completeProfile">
-  <h2>Complete your profile to proceed:</h2>
   <div class="inputField">
     <label for="budget">Enter a monthly budget:</label>
-    <input type="number" id="budget" min="0" required>
+    <input type="number" id="budget" min="0" required value="{{ user.budget }}">
   </div>
   <div class="inputField">
     <label for="income">Enter a monthly income:</label>
-    <input type="number" id="income" min="0" required>
+    <input type="number" id="income" min="0" required value="{{ user.income }}">
   </div>
   <div class="inputField">
     <label for="account">What's your total account balance?</label>
-    <input type="number" id="account" min="0" required>
+    <input type="number" id="account" min="0" required value="{{ user.account }}">
   </div>
-  <br>
   <button type="submit">Submit</button>
 </form>
-<br>
-{% else %}
-<h1>Profile</h1>
-<br>
-<a href="/dashboard" id="dashboard" class="button">Go to dashboard</a>
-<br><br><br>
+<br><br>
 {% endif %}
-<form id="transaction_row" class="row">
+<h2>Add a new transaction</h2>
+<form id="newTransaction">
   <div class="date">
-    <label for="datePicker">Start date:</label>
     <input class='datePick' id='datePicker' type="date" name="trip-start">
-    <script>
-      document.getElementById('datePicker').valueAsDate = new Date();
-    </script>
   </div>
   <div class="dropdown">
-    <!-- <button class="dropbtn">transaction type</button>
-    <div class="dropdown-content">
-        <a href="#">Spending</a>
-        <a href="#">Earning</a>
-      </div> -->
-
-    <select class="dropbtn" name="transaction_type" id="transaction_type">
-      <option value="" selected disabled hidden>Transaction type</option>
+    <select class="dropbtn" id="transactionType">
       <option value="expenditure">Expenditure</option>
       <option value="income">Income</option>
     </select>
   </div>
   <div class="dropdown">
-    <select class="dropbtn" id="category_types">
-      <option value="" selected disabled hidden>Categories</option>
+    <select class="dropbtn" id="expenditureTypes">
       <option value="meals">Meals</option>
       <option value="groceries">Groceries</option>
       <option value="movies">Movies & TV</option>
@@ -64,17 +49,20 @@
       <option value="investment">Investment</option>
       <option value="other">Other</option>
     </select>
+    <select class="dropbtn" id="incomeTypes">
+      <option value="primary">Primary</option>
+      <option value="investment">Investment</option>
+      <option value="present">Present</option>
+      <option value="other">Other</option>
+    </select>
   </div>
-  <div class="input">
-    <input class="amount" name="Type Amount" id="amount"/>
-  </div>
+  <input class="amount" name="Type Amount" id="amount" type="text" placeholder="Amount"/>
   <div class="send">
     <button class="submit" id="submitTransaction">Submit</button>
   </div>
 </form>
 <br><br>
-<div id="form-response"></div>
-
+<h2>Transactions</h2>
 <table>
   <thead>
     <tr>
@@ -87,7 +75,7 @@
   <tbody>
     {% for transaction in transactions %}
     <tr>
-      <td>{{transaction['date']['$date']}}</td>
+      <td>{{transaction['date']['$date'] | date}}</td>
       <td>{{transaction.transaction_type}}</td>
       <td>{{transaction.category}}</td>
       <td>{{transaction.amount}}</td>

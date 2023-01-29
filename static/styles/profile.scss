@@ -1,7 +1,6 @@
 /* Dropdown Button */
 .dropbtn, .datePick, .input, .submit {
   background-color: var(--accent);
-  color: white;
   padding: 8px;
   font-size: 16px;
   border: none;
@@ -21,17 +20,6 @@
   padding: 0px 8px;
 }
 
-.row {
-  display: inline-flex;
-  position: relative
-}
-
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .submit:hover {
   background-color: aquamarine;
 }
@@ -41,16 +29,63 @@
 //     border: 2px solid rgb(85, 84, 84);
 // }
 
-#completeProfile {
+h2 {
+  font-family: sans-serif;
+}
+
+form {
   background-color: var(--background-dark);
   border-radius: 10px;
   padding: 2rem;
 
-  h2 {
-    margin: 0;
-  }
-
   input {
     width: 7rem;
+  }
+}
+
+#newTransaction {
+  display: flex;
+
+  input[type=text] {
+    appearance: none;
+    background: none;
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+    color: var(--foreground);
+    padding: .25em 1em;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+#incomeTypes {
+  display: none;
+}
+
+#datePicker {
+  width: 9rem;
+}
+
+table {
+  border: 1px solid #888;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  width: 100%;
+
+  th, td {
+    border: 1px solid #888;
+    border-width: 0 1px;
+    padding: 1rem;
+  }
+
+  thead tr {
+    border-bottom: 2px solid #888;
+  }
+
+  thead tr, tr:nth-child(even) {
+    background-color: var(--background-dark);
   }
 }

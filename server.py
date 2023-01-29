@@ -36,6 +36,11 @@ transactions = db['transactions']
 users = db['users']
 
 
+@app.template_filter()
+def date(value):
+    return value.split('T')[0].replace('-', ' / ')
+
+
 # Controllers API
 @app.route("/")
 def get_index():
