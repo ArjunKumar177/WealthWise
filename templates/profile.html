@@ -7,17 +7,34 @@
 {% block body %}
 <h2>Fill Out:</h2>
 <div class="row">
+    <div class="date">
+        <label for="start">Start date:</label>
+        <input class='datePick' id='datePicker' type="date" id="start" name="trip-start">
+       <script>
+        document.getElementById('datePicker').valueAsDate = new Date();
+        </script>
+    </div>
     <div class="dropdown">
         <!-- <button class="dropbtn">transaction type</button>
         <div class="dropdown-content">
             <a href="#">Spending</a>
             <a href="#">Earning</a>
           </div> -->
+          
           <select class="dropbtn" name="transaction_type" id="transaction_type">
                 <option value="Select Transaction type">Transaction type</option>
                 <option value="Spending">Spending</option>
                 <option value="Earning">Earning</option>
           </select>
     </div>
+    <div class="dropdown">
+        <select class="dropbtn" name="transaction_type" id="transaction_type">
+            <option value="Catogories">Catogories</option>
+            <option value="Food">Food</option>
+            <option value="Investing">Investing</option>
+            <option value="Entertainment">Entertainment</option>
+      </select>
+    </div>
+
 </div>
 {% endblock %}

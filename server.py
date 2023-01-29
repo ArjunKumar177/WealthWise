@@ -35,8 +35,9 @@ oauth.register(
 cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
 client = MongoClient(cluster)
 db = client.wealthwise
+dbUser = client['db-name']
 transactions = db.transactions
-users = db.users
+users = dbUser.users
 
 
 # Controllers API
