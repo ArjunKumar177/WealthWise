@@ -68,12 +68,16 @@ main {
   padding: 1em 10vw;
 }
 
-button {
+button, .button {
   background-color: var(--accent);
   border: none;
   border-radius: 5px;
+  color: #000;
   font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: 500;
   padding: .5rem 1rem;
+  text-decoration: none;
 }
 
 #overlay {
@@ -122,7 +126,7 @@ form {
       margin-right: 1rem;
     }
 
-    input {
+    input, select {
       appearance: none;
       background: none;
       border: 1px solid var(--foreground);

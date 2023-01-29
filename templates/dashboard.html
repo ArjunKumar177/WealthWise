@@ -9,16 +9,17 @@
 <dialog id="expenditureDialog">
   <form>
     <h1>Add Expenditure</h1>
-    <label for="newExpenditure">How much did you spend?</label>
-    <br>
-    <input type="number" id="newExpenditure">
-    <br><br>
-    <label for="category">What did you spend on?</label>
-    <br>
-    <select id="category">
-      <option value="food">Food</option>
-      <option value="entertainment">Entertainment</option>
-    </select>
+    <div class="inputField">
+      <label for="newExpenditure">How much did you spend?</label>
+      <input type="number" id="newExpenditure">
+    </div>
+    <div class="inputField">
+      <label for="category">What did you spend on?</label>
+      <select id="category">
+        <option value="food">Food</option>
+        <option value="entertainment">Entertainment</option>
+      </select>
+    </div>
     <br><br>
     <button>Add</button>
   </form>
@@ -42,14 +43,14 @@
     <div class="bar">
       <h2>Budget</h2>
       <p>How much of your weekly budget have you used?</p>
-      <progress id="budget" max="100" value="32"></progress>
-      <p>$32 / $100</p>
+      <progress id="budget" max="{{ user.budget }}" value="{{ user.expenditure }}"></progress>
+      <p>${{ user.expenditure }} / ${{ user.budget }}</p>
     </div>
     <div class="bar">
       <h2>Invested</h2>
-      <p>How much of your income have you invested?</p>
-      <progress id="invested" max="100" value="48"></progress>
-      <p>$48 / $100</p>
+      <p>How much of your budget have you invested?</p>
+      <progress id="invested" max="{{ user.budget }}" value="{{ user.invested }}"></progress>
+      <p>${{ user.invested }} / ${{ user.budget }}</p>
     </div>
   </div>
 </div>

@@ -70,6 +70,8 @@ main {
   }
 }
 
-dialog label {
-  font-size: 1.2rem;
+dialog {
+  select, input {
+    width: 200px !important;
+  }
 }

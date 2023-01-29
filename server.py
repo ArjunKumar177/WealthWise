@@ -55,12 +55,16 @@ def send_static_styles(directory, path):
 def get_dashboard():
     if len(session):
         object_id = session.get('user')['userinfo']['sub'][6:]
-        return render_template(
-            "dashboard.html",
-            user=users.find_one({'_id': ObjectId(object_id)}),
-            session=session.get("user"),
-            pretty=json.dumps(session.get("user"), indent=4),
-        )
+        user = users.find_one({'_id': ObjectId(object_id)})
+        if user.get('profile_completed'):
+            return render_template(
+                "dashboard.html",
+                user=user,
+                session=session.get("user"),
+                pretty=json.dumps(session.get("user"), indent=4),
+            )
+        else:
+            return redirect("/profile")
     else:
         return redirect("/")
 
@@ -112,7 +116,6 @@ def get_logout():
 
 @app.route("/transaction", methods=["POST"])
 def add_transaction():
-    
     username = request.form.get('username')
     transaction_type = request.form.get('transaction_type')
     amount = request.form.get('amount')
@@ -138,6 +141,8 @@ def post_complete_profile():
                 'budget': int(request.form.get('budget')),
                 'income': int(request.form.get('income')),
                 'account': int(request.form.get('account')),
+                'expenditure': 0,
+                'invested': 0,
                 'profile_completed': True,
             },
         }
