@@ -49,3 +49,21 @@ $('#expenditureDialog form').on('submit', e => {
     });
   });
 });
+
+$('#incomeDialog form').on('submit', e => {
+  e.preventDefault();
+  let body = new FormData();
+  body.append('date', (new Date()).toISOString().slice(0, 10));
+  body.append('amount', $('#newIncome').val()!.toString() || '0');
+  body.append('category', $('#incomeTypes').val()!.toString() || '0');
+  body.append('transaction_type', 'income');
+  fetch('/transaction', {
+    method: 'POST',
+    body,
+  }).then(result => {
+    console.log(result);
+    result.text().then(text => {
+      if (text === 'success') location.reload();
+    });
+  });
+});

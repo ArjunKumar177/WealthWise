@@ -1,11 +1,13 @@
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
+
+import pymongo
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
 
-from pymongo import MongoClient
+from pymongo import MongoClient, DESCENDING
 from datetime import datetime
 from bson.objectid import ObjectId
 from bson import json_util
@@ -93,7 +95,7 @@ def profile():
     if len(session):
         object_id = session.get('user')['userinfo']['sub'][6:]
         user = users.find_one({'_id': ObjectId(object_id)})
-        documents = list(transactions.find({'user_id': ObjectId(object_id)}))
+        documents = list(transactions.find({'user_id': ObjectId(object_id)}).sort([('date', DESCENDING)]))
         return render_template(
             "profile.html",
             user=user,
@@ -130,6 +132,19 @@ def add_transaction():
     amount = request.form.get('amount')
     category = request.form.get('category')
     date = request.form.get('date')
+
+    if transaction_type == 'income':
+        users.update_one({'_id': ObjectId(object_id)}, {'$inc': {
+            'account': int(amount)
+        }})
+    elif category == 'investment':
+        users.update_one({'_id': ObjectId(object_id)}, {'$inc': {
+            'invested': int(amount)
+        }})
+    else:
+        users.update_one({'_id': ObjectId(object_id)}, {'$inc': {
+            'expenditure': int(amount)
+        }})
 
     transactions.insert_one({
         "user_id": ObjectId(object_id),

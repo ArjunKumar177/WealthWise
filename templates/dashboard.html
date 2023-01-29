@@ -9,6 +9,7 @@
 <dialog id="expenditureDialog">
   <form>
     <h1>Add Expenditure</h1>
+    <br>
     <div class="inputField">
       <label for="newExpenditure">How much did you spend?</label>
       <input type="number" id="newExpenditure" min="0" required>
@@ -27,17 +28,26 @@
         <option value="other">Other</option>
       </select>
     </div>
-    <br><br>
     <button type="submit">Add</button>
   </form>
 </dialog>
 <dialog id="incomeDialog">
   <form>
     <h1>Add Income</h1>
-    <label for="newIncome">How much did you spend?</label>
     <br>
-    <input type="number" id="newIncome">
-    <br><br>
+    <div class="inputField">
+      <label for="newIncome">How much did you earn?</label>
+      <input type="number" id="newIncome">
+    </div>
+    <div class="inputField">
+      <label for="incomeTypes">What type of income is it?</label>
+      <select id="incomeTypes">
+        <option value="primary">Primary</option>
+        <option value="investment">Investment</option>
+        <option value="present">Present</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
     <button>Add</button>
   </form>
 </dialog>
