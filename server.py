@@ -33,7 +33,7 @@ oauth.register(
 
 cluster = env.get("MONGODB_CLUSTER")
 client = MongoClient(cluster)
-db = client['db-name']
+db = client['wealthwise']
 transactions = db['transactions']
 users = db['users']
 
