@@ -5,44 +5,42 @@
 }
 
 header {
-  background-color: #19BC16;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
-  padding-bottom: 50px;
+  background-color: #4fc3f7;
+  background-image: url("https://www.transparenttextures.com/patterns/type.png");
+  padding: 10vh 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   h1 {
     text-align: center;
-    color: white;
-    font-family: Domine;
-    margin-top: 100px;
+    color: #fff;
+    font-family: Domine, serif;
     font-size: 60px;
   }
 
   button {
     margin: auto;
     border-radius: 5px;
-    border-color: white;
-    font-family: Domine;
+    font-family: Domine, serif;
     cursor: pointer;
-    border: 0px solid white;
-    background-color: #138611;
-    
+    border: none;
+    background-color: #29b6f6;
+    background-image: url("https://www.transparenttextures.com/patterns/type.png");
     height: 50px;
     width: 200px;
-    color: white;
     font-size: 1.5em;
     transition-duration: 0.4s;
-    background-image: url("https://www.transparenttextures.com/patterns/dark-geometric.png");
 
     a {
       color: #fff;
+      display: block;
       text-decoration: none;
+      width: 100%;
     }
   }
   button:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   }
 }
 

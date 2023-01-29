@@ -2,7 +2,9 @@
   --background: #222;
   --foreground: #fff;
   --background-dark: #111;
-  --accent: #26a69a;
+  --accent: #4fc3f7;
+  --expended: #f44336;
+  --invested: #2196f3;
 }
 
 html, body {
@@ -22,6 +24,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  height: 5rem;
+
+  h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    a {
+      text-decoration: none;
+      color: var(--foreground);
+    }
+  }
 
   button {
     background-color: var(--accent);
@@ -30,6 +44,11 @@ header {
     margin: auto 1rem;
     padding: .5rem 1rem;
     font-size: 1rem;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
   }
 }
 
