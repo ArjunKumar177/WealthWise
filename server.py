@@ -48,9 +48,11 @@ def get_index():
         pretty=json.dumps(session.get("user"), indent=4),
     )
 
+
 @app.route('/<directory>/<path>')
 def send_static_styles(directory, path):
-    return send_from_directory('static/'+ directory, path)
+    return send_from_directory('static/' + directory, path)
+
 
 @app.route("/dashboard")
 def get_dashboard():
@@ -74,6 +76,7 @@ def get_login():
         redirect_uri=url_for("callback", _external=True)
     )
 
+
 @app.route("/profile")
 def profile():
     return render_template(
@@ -81,9 +84,6 @@ def profile():
         session=session.get("user"),
         pretty=json.dumps(session.get("user"), indent=4),
     )
-        
-    
-
 
 
 @app.route("/logout")
@@ -103,7 +103,7 @@ def get_logout():
     )
 
 
-@app.route("/transaction", methods=["GET","POST"])
+@app.route("/transaction", methods=["GET", "POST"])
 def add_transaction():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -112,9 +112,10 @@ def add_transaction():
         category = request.form.get('category')
         result = users.find_one({"name": name})
         user_id = result["_id"]
-        transaction1 = {"User": name, "data": datetime.datetime.utcnow(), "user_id" : user_id, "transaction_type": transaction_type, "amount" : amount, "category" : category}
+        transaction1 = {"User": name, "data": datetime.datetime.utcnow(), "user_id": user_id,
+                        "transaction_type": transaction_type, "amount": amount,
+                        "category": category}
         result = transactions.insert_one(transaction1)
-
 
 
 if __name__ == "__main__":
