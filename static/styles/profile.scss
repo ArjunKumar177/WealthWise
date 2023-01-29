@@ -1,5 +1,5 @@
 /* Dropdown Button */
-.dropbtn, .datePick{
+.dropbtn, .datePick, .input, .submit{
     background-color: #26a69a;
     color: white;
     padding: 8px;
@@ -17,11 +17,11 @@
     border-radius: 5px;
 } */
   
-  .dropdown, .date {
+  .dropdown, .date, .send {
     padding: 0px 8px;
   }
 
-  .row {
+  .row{
     display: inline-flex;
     position: relative
   }
@@ -30,7 +30,8 @@
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
+  .submit:hover {background-color: aquamarine;}
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover, .dropbtn:hover, .datePick:hover {
-    border: 2px solid rgb(85, 84, 84);
-}
+//   .dropdown:hover, .dropbtn:hover, .datePick:hover {
+//     border: 2px solid rgb(85, 84, 84);
+// }
