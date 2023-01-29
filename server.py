@@ -32,12 +32,11 @@ oauth.register(
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration',
 )
 
-cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
+cluster = env.get("MONGODB_CLUSTER")
 client = MongoClient(cluster)
-db = client.wealthwise
-dbUser = client['db-name']
-transactions = db.transactions
-users = dbUser.users
+db = client['db-name']
+transactions = db['transactions']
+users = db['users']
 
 
 # Controllers API
@@ -57,11 +56,14 @@ def send_static_styles(directory, path):
 
 @app.route("/dashboard")
 def get_dashboard():
-    return render_template(
-        "dashboard.html",
-        session=session.get("user"),
-        pretty=json.dumps(session.get("user"), indent=4),
-    )
+    if len(session):
+        return render_template(
+            "dashboard.html",
+            session=session.get("user"),
+            pretty=json.dumps(session.get("user"), indent=4),
+        )
+    else:
+        return redirect("/")
 
 
 @app.route("/callback", methods=["GET", "POST"])
@@ -80,11 +82,16 @@ def get_login():
 
 @app.route("/profile")
 def profile():
-    return render_template(
-        "profile.html",
-        session=session.get("user"),
-        pretty=json.dumps(session.get("user"), indent=4),
-    )
+    if len(session):
+        object_id = session.get('user')['userinfo']['sub'][6:]
+        return render_template(
+            "profile.html",
+            user=users.find_one({'_id': ObjectId(object_id)}),
+            session=session.get("user"),
+            pretty=json.dumps(session.get("user"), indent=4),
+        )
+    else:
+        return redirect("/")
 
 
 @app.route("/logout")

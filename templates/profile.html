@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+{{ user }}
 <h2>Fill Out:</h2>
 <div class="row">
     <div class="date">
@@ -20,7 +21,7 @@
             <a href="#">Spending</a>
             <a href="#">Earning</a>
           </div> -->
-          
+
           <select class="dropbtn" name="transaction_type" id="transaction_type">
                 <option value="Select Transaction type">Transaction type</option>
                 <option value="Spending">Spending</option>
