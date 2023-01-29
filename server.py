@@ -110,19 +110,20 @@ def get_logout():
     )
 
 
-@app.route("/transaction", methods=["GET", "POST"])
+@app.route("/transaction", methods=["POST"])
 def add_transaction():
-    if request.method == 'POST':
-        name = request.form.get('name')
-        transaction_type = request.form.get('transaction_type')
-        amount = request.form.get('amount')
-        category = request.form.get('category')
-        result = users.find_one({"name": name})
-        user_id = result["_id"]
-        transaction1 = {"User": name, "data": datetime.datetime.utcnow(), "user_id": user_id,
-                        "transaction_type": transaction_type, "amount": amount,
-                        "category": category}
-        result = transactions.insert_one(transaction1)
+    
+    username = request.form.get('username')
+    transaction_type = request.form.get('transaction_type')
+    amount = request.form.get('amount')
+    category = request.form.get('category')
+    date = request.form.get('date')
+    result = users.find_one({"username": username})
+    user_id = result["_id"]
+    transaction1 = {"username": username, "data": date, "user_id": user_id,
+                    "transaction_type": transaction_type, "amount": amount,
+                    "category": category}
+    result = transactions.insert_one(transaction1)
 
 
 @app.route("/completeProfile", methods=["POST"])

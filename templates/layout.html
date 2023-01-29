@@ -22,6 +22,9 @@
     © 2023
   </footer>
   <script src="/scripts/cash.min.js"></script>
+  <script>
+    const username = "{{ user.username | safe }}";
+  </script>
   {% block javascript %}{% endblock %}
 </body>
 </html>

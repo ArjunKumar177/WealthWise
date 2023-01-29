@@ -11,3 +11,23 @@ $('#completeProfile').on('submit', e => {
     console.log(result);
   });
 });
+
+// document.querySelector('#submit')!.addEventListener('click', () => {
+    
+// });
+
+declare const username: string;
+
+$('#submitTransaction').on('click', function() {
+  var date = $('#datePicker').val();
+  var transaction_type = $('transaction_type').val();
+  var catogaries_type = $('catogaries_type').val();
+  var amount = $('amount').val();
+  $.post('/transactions', {
+    "username" : username,
+    "date": date, 
+    "transaction_type": transaction_type,
+    "category": catogaries_type,
+    "amount": amount
+  });
+});
