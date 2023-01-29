@@ -6,15 +6,21 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}WealthWise{% endblock %}</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  {% block head %}{% endblock %}
 </head>
 <body>
   <header>
+    <button id="menu">≡</button>
     <h1>WealthWise</h1>
+    <button id="signin">Sign in</button>
   </header>
-  {% block body %}
-  {% endblock %}
+  <main>
+    {% block body %}{% endblock %}
+  </main>
   <footer>
     © 2023
   </footer>
+  {% block javascript %}{% endblock %}
 </body>
 </html>

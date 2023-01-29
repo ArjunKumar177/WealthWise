@@ -118,4 +118,4 @@ def add_transaction():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=env.get("PORT", 8000))
+    app.run(debug=True, port=env.get("PORT", 4242))
