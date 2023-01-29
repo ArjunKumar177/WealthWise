@@ -46,8 +46,9 @@ form {
 #newTransaction {
   display: flex;
 
-  input[type=text] {
+  input[type=number] {
     appearance: none;
+    -moz-appearance: textfield;
     background: none;
     border: 2px solid var(--accent);
     border-radius: 5px;
