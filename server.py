@@ -89,13 +89,13 @@ def profile():
     if len(session):
         object_id = session.get('user')['userinfo']['sub'][6:]
         user = users.find_one({'_id': ObjectId(object_id)})
-        documents = list(transactions.find({'username':user['username']}))
+        documents = list(transactions.find({'user_id': ObjectId(object_id)}))
         return render_template(
             "profile.html",
             user=user,
             session=session.get("user"),
             pretty=json.dumps(session.get("user"), indent=4),
-            transactions= json_util.dumps(documents)
+            transactions=json.loads(json_util.dumps(documents))
         )
     else:
         return redirect("/")
