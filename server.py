@@ -54,8 +54,10 @@ def send_static_styles(directory, path):
 @app.route("/dashboard")
 def get_dashboard():
     if len(session):
+        object_id = session.get('user')['userinfo']['sub'][6:]
         return render_template(
             "dashboard.html",
+            user=users.find_one({'_id': ObjectId(object_id)}),
             session=session.get("user"),
             pretty=json.dumps(session.get("user"), indent=4),
         )
