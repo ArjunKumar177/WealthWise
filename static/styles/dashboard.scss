@@ -66,10 +66,10 @@ main {
   margin: 2rem;
 
   button {
-    background-color: var(--accent);
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
     padding: .75rem 2rem;
   }
+}
+
+dialog label {
+  font-size: 1.2rem;
 }

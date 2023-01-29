@@ -43,7 +43,7 @@ header {
     border-radius: 5px;
     color: #000;
     font-family: sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     margin: auto 1rem;
     padding: .5rem 1rem;
@@ -66,4 +66,46 @@ footer {
 main {
   flex-grow: 1;
   padding: 1em 10vw;
+}
+
+button {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+}
+
+#overlay {
+  background-color: #00000066;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+dialog {
+  background-color: var(--background);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 12px 8px var(--shadow);
+  color: var(--foreground);
+  font-family: sans-serif;
+  max-height: calc(95vh - 2rem);
+  min-width: 50%;
+  max-width: calc(95vw - 2rem);
+  overflow: auto;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+
+  h1 {
+    margin: 0 0 1rem 0;
+  }
 }

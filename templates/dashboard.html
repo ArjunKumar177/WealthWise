@@ -5,6 +5,24 @@
 {% endblock %}
 
 {% block body %}
+<div id="overlay"></div>
+<dialog id="expenditureDialog">
+  <form>
+    <h1>Add Expenditure</h1>
+    <label for="newExpenditure">How much did you spend?</label>
+    <br>
+    <input type="number" id="newExpenditure">
+    <br><br>
+    <label for="category">What did you spend on?</label>
+    <br>
+    <select id="category">
+      <option value="food">Food</option>
+      <option value="entertainment">Entertainment</option>
+    </select>
+    <br><br>
+    <button>Add</button>
+  </form>
+</dialog>
 <div id="charts">
   <div id="pieContainer">
     <canvas id="pie"></canvas>
