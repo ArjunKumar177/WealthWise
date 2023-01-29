@@ -16,18 +16,15 @@ $('#completeProfile').on('submit', e => {
 });
 
 // document.querySelector('#submit')!.addEventListener('click', () => {
-    
-// });
 
-declare const username: string;
+// });
 
 $('#transaction_row').on('submit', e => {
   e.preventDefault();
   let body = new FormData();
-  body.append('username', username);
-  body.append('date', $('#datePicker').val()!.toString() || '0');
+  body.append('date', $('#datePicker').val()!.toString() || (new Date()).toISOString().slice(0, 10));
   body.append('transaction_type', $('#transaction_type').val()!.toString() || '0');
-  body.append('category', $('#catogaries_type').val()!.toString() || '0');
+  body.append('category', $('#category_types').val()!.toString() || '0');
   body.append('amount', $('#amount').val()!.toString() || '0');
   fetch('/transaction', {
     method: 'POST',

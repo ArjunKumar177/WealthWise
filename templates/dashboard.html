@@ -11,17 +11,24 @@
     <h1>Add Expenditure</h1>
     <div class="inputField">
       <label for="newExpenditure">How much did you spend?</label>
-      <input type="number" id="newExpenditure">
+      <input type="number" id="newExpenditure" min="0" required>
     </div>
     <div class="inputField">
       <label for="category">What did you spend on?</label>
       <select id="category">
-        <option value="food">Food</option>
+        <option value="meals">Meals</option>
+        <option value="groceries">Groceries</option>
+        <option value="movies">Movies & TV</option>
+        <option value="clothes">Clothes</option>
+        <option value="school">School</option>
+        <option value="home">Home Appliances</option>
         <option value="entertainment">Entertainment</option>
+        <option value="investment">Investment</option>
+        <option value="other">Other</option>
       </select>
     </div>
     <br><br>
-    <button>Add</button>
+    <button type="submit">Add</button>
   </form>
 </dialog>
 <dialog id="incomeDialog">

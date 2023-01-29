@@ -128,6 +128,7 @@ form {
 
     input, select {
       appearance: none;
+      -moz-appearance: textfield;
       background: none;
       border: 1px solid var(--foreground);
       border-radius: 5px;
