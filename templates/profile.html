@@ -1,3 +1,22 @@
 {% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/styles/profile.css">
+{% endblock %}
+
 {% block body %}
+<div class="row">
+    <div class="dropdown">
+        <!-- <button class="dropbtn">transaction type</button>
+        <div class="dropdown-content">
+            <a href="#">Spending</a>
+            <a href="#">Earning</a>
+          </div> -->
+          <select class="dropbtn" name="transaction_type" id="transaction_type">
+                <option value="Select Transaction type">Transaction type</option>
+                <option value="Spending">Spending</option>
+                <option value="Earning">Earning</option>
+          </select>
+    </div>
+</div>
 {% endblock %}
