@@ -96,7 +96,10 @@ def get_logout():
 def add_transaction():
     if request.method == 'POST':
         name = request.form.get('name')
-        result = users.find_one({"name"})
+        transaction_type = request.form.get('transaction_type')
+        amount = request.form.get('amount')
+        category = request.form.get('category')
+        result = users.find_one({"name": name})
         print(result)
 
 
