@@ -10,9 +10,6 @@ from pymongo import MongoClient
 import datetime
 from bson.objectid import ObjectId
 
-cluster = "mongodb+srv://SAA:1234@cluster0.vvmlbuq.mongodb.net/test?retryWrites=true&w=majority"
-client = MongoClient(cluster)
-
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
