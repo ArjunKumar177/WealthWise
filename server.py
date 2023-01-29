@@ -75,10 +75,6 @@ def get_dashboard():
                 if v != 0:
                     chart_data.append(v)
                     chart_label.append(k)
-            
-            print(chart_data)
-            print(chart_label)
-
 
             return render_template(
                 "dashboard.html",
@@ -186,9 +182,20 @@ def post_complete_profile():
                 'budget': int(request.form.get('budget')),
                 'income': int(request.form.get('income')),
                 'account': int(request.form.get('account')),
-                'expenditure': 0,
-                'invested': 0,
                 'profile_completed': True,
+            },
+        }
+    )
+    users.update_one(
+        {
+            '_id': ObjectId(session.get('user')['userinfo']['sub'][6:]),
+            'expenditure': {'$exists': False},
+            'income': {'$exists': False},
+        },
+        {
+            '$set': {
+                'expenditure': 0,
+                'income': 0,
             },
         }
     )

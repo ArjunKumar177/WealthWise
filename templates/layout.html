@@ -6,14 +6,20 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}WealthWise{% endblock %}</title>
+  <link rel="shortcut icon" href="/images/WealthWise.png" type="image/x-icon">
   <link rel="stylesheet" href="/styles/main.css">
   {% block head %}{% endblock %}
 </head>
 <body>
   <header>
-    <a href="/dashboard">Dashboard</a>
-    <h1><a href="/">WealthWise</a></h1>
-    <a href="/profile">{{user.username}}</a>
+    <a href="/dashboard">
+      Dashboard
+    </a>
+    <h1>
+      <img src="/images/WealthWise.png" alt="WealthWise Logo">
+      <a href="/">WealthWise</a>
+    </h1>
+    <a href="/profile">Profile</a>
   </header>
   <main>
     {% block body %}{% endblock %}

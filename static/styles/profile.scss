@@ -29,6 +29,24 @@
 //     border: 2px solid rgb(85, 84, 84);
 // }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+
+  .vl {
+    height: 3em;
+    border: 2px solid var(--foreground);
+    margin: 0 2em;
+  }
+
+  a {
+    color: var(--foreground);
+    text-decoration: none;
+  }
+}
+
 h2 {
   font-family: sans-serif;
 }

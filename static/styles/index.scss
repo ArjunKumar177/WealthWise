@@ -7,12 +7,12 @@
 header {
   background-color: #4fc3f7;
   background-image: url("https://www.transparenttextures.com/patterns/type.png");
-  padding: 10vh 0;
+  padding: 6vh 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  h1 {
+  > div {
     text-align: center;
     color: #fff;
     font-size: 60px;

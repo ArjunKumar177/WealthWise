@@ -28,9 +28,16 @@ header {
 
   h1 {
     font-family: Domine, serif;
+    display: flex;
+    align-items: center;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -20%);
+
+    img {
+      height: 2em;
+      margin-right: 1rem;
+    }
 
     a {
       text-decoration: none;
