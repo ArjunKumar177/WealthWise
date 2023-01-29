@@ -100,7 +100,10 @@ def add_transaction():
         amount = request.form.get('amount')
         category = request.form.get('category')
         result = users.find_one({"name": name})
-        print(result)
+        user_id = result["_id"]
+        transaction1 = {"User": name, "data": datetime.datetime.utcnow(), "user_id" : user_id, "transaction_type": transaction_type, "amount" : amount, "category" : category}
+        result = transactions.insert_one(transaction1)
+
 
 
 if __name__ == "__main__":
