@@ -74,6 +74,17 @@ def get_login():
         redirect_uri=url_for("callback", _external=True)
     )
 
+@app.route("/profile")
+def profile():
+    return render_template(
+        "profile.html",
+        session=session.get("user"),
+        pretty=json.dumps(session.get("user"), indent=4),
+    )
+        
+    
+
+
 
 @app.route("/logout")
 def get_logout():
@@ -92,7 +103,7 @@ def get_logout():
     )
 
 
-@app.route("/transaction", methods=["POST"])
+@app.route("/transaction", methods=["GET","POST"])
 def add_transaction():
     if request.method == 'POST':
         name = request.form.get('name')
