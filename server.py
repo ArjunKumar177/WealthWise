@@ -9,6 +9,7 @@ from flask import Flask, redirect, render_template, session, url_for, request, s
 from pymongo import MongoClient
 import datetime
 from bson.objectid import ObjectId
+from bson import json_util
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -87,11 +88,14 @@ def get_login():
 def profile():
     if len(session):
         object_id = session.get('user')['userinfo']['sub'][6:]
+        user = users.find_one({'_id': ObjectId(object_id)})
+        documents = list(transactions.find({'username':user['username']}))
         return render_template(
             "profile.html",
-            user=users.find_one({'_id': ObjectId(object_id)}),
+            user=user,
             session=session.get("user"),
             pretty=json.dumps(session.get("user"), indent=4),
+            transactions= json_util.dumps(documents)
         )
     else:
         return redirect("/")
